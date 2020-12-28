@@ -11,8 +11,9 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
 
- 
 
+ 
+![](playbook/elkplaybook.png)
 This document contains the following details:
 - Description of the Topology
 - Access Policies
