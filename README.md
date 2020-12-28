@@ -72,7 +72,8 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- you can run a playbook from your cotrol machine and Ansible uses SSH to communicate with the hosts and executes all the tasks (commands). If you are wanting to 
+  install updated software on one or several machines, you can write a playbook to install the new software on all the machines, instead of individually.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
