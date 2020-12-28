@@ -92,14 +92,14 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat is used to generate and organize log files and logs information in regards to the filesystem. Including which files have been changed and when.
-- Metricbeat
+- Filebeat allows us to generate and organize log files and logs information in regards to the filesystem. Including which files have been changed and when.
+- Metricbeat detects failed SSH logins, CPU usage and sudo escalation failures and collects this information in the system and service metrics.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
+- Copy the playbook file to the Ansible Control Node.
 - Update the _____ file to include...
 - Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
