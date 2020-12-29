@@ -64,7 +64,7 @@ Only the jumpbox machine can accept connections from the Internet. Access to thi
 - Public IP address: 20.51.232.6
 
 Machines within the network can only be accessed by each other.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+- Allowed Web-1 access to the ELK server and it's public IP address is, 52.188.7.129. 
 
 A summary of the access policies in place can be found in the table below.
 
@@ -116,5 +116,6 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 - _Which URL do you navigate to in order to check that the ELK server is running?
+- http://20.80.88.208/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
