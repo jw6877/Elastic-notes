@@ -86,7 +86,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The playbook implements the following tasks:
 - Install Docker, Ptyon-PIP
 - Download image: sebp/elk:761
-- Enable container to withsatnd reboots upon starting
+- Enable container to withstand reboots upon starting
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
