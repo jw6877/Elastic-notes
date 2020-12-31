@@ -21,7 +21,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
  
-![](filebeatsyml.png)
+![](/images/filebeatsyml.png)
 This document contains the following details:
 - Description of the Topology
 - Access Policies
@@ -90,7 +90,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![](docker-ps.png)
+![](/images/docker-ps.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
