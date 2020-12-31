@@ -64,29 +64,29 @@ Only the jumpbox machine can accept connections from the Internet. Access to thi
 - Public IP address: 20.51.232.6
 
 Machines within the network can only be accessed by each other.
-- Allowed Web-1 access to the ELK server and it's public IP address is, 52.188.7.129. 
+- Allowed Jumpbox Provisioner access to the ELK server and it's public IP address is, 52.188.7.129. 
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | Yes                 | 20.51.232.6          |
-| ELK      | No                  | 10.1.0.4             |
-| Web-1    | No                  | 10.0.0.7             |
-| Web-2    | No                  | 10.0.0.6             |
-| Web-3    | No                  | 10.0.0.8             |
+| ELK      | Yes                  | 10.1.0.4             |
+| Web-1    | Yes                  | 10.0.0.7             |
+| Web-2    | Yes                  | 10.0.0.6             |
+| Web-3    | Yes                  | 10.0.0.8             |
 
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- you can run a playbook from your cotrol machine and Ansible uses SSH to communicate with the hosts and executes all the tasks (commands). If you are wanting to 
-  install updated software on one or several machines, you can write a playbook to install the new software on all the machines, instead of individually.
+- you can run a playbook from your cotrol machine and Ansible uses SSH to communicate with the hosts and executes all the tasks (commands).
+- the YAML playbooks can be used with the the expectation that the results will be the same each time.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Install Docker, Ptyon-PIP
+- Download image: sebp/elk:761
+- Enable container to withsatnd reboots upon starting
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -97,25 +97,30 @@ This ELK server is configured to monitor the following machines:
 - The ELK server is configured to monitor Web-1, Web-2 and Web-3 VM's at 10.0.0.7, 10.0.0.6 and 10.0.0.8, respectively.
 
 We have installed the following Beats on these machines:
-- Filebeat
-- Metricbeat
+- Filebeat - Web-1, Web-2, Web-3
+- Metricbeat - ELK
 
 These Beats allow us to collect the following information from each machine:
-- Filebeat allows us to generate and organize log files and logs information in regards to the filesystem. Including which files have been changed and when.
-- Metricbeat detects failed SSH logins, CPU usage and sudo escalation failures and collects this information in the system and service metrics.
+- Filebeat allows us to generate and organize log files and logs information on each webserver and events recorded from the DVWA will be transferred to Elasticsearch.
+- Metricbeat is expected to relay to Elasticsearch the statistics of the ELK server.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the playbook file to the Ansible Control Node.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the hosts file to the /etc/ansible.
+- Update the hosts file to include...
+  - group notated by [groupname]
+  - list of VM IP addresses with the path directed to the python intepreter.
+  
+- Run the playbook, and navigate to each VM via SSH to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-- http://20.80.88.208:5601/app/kibana
+- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+
+- Which URL do you navigate to in order to check that the ELK server is running?
+
+  - http://20.80.88.208:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
